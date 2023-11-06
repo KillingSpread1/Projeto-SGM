@@ -1,30 +1,38 @@
 const express = require('express');
 const mongoose = require('mongoose')
 
-/*
-const User = require('./models/user');
-const TeamMember = require('./models/teamMember');
-const { PublicationCategory, Publication } = require('./models/publications');
-const Contact = require('./models/contacts');
-const Game = require('./models/games');
-const Project = require('./models/projects');*/
-
 // Express instance
 const app = express();
 
+const home = require ('./routes/Home');
+const about = require ('./routes/About');
+const albums = require ('./routes/Albums');
+const events = require ('./routes/Events');
+const gallery = require ('./routes/Gallery');
+const suggestions = require ('./routes/Suggestions');
+
+
 // Connect to db
-/*
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true })
-const db = mongoose.connection
-db.on('error', (error) => console.log(error))
-db.once('open', () => console.log('Connected to database'))*/
+mongoose.connect('mongodb+srv://diogo02gouveia:kMUd8BVOzpduYQQl@cluster0.dgkpjo4.mongodb.net/');
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'Erro ao conectar à base de dados'));
+db.once('open', function() {
+  console.log('Conectou-se à base de dados com sucesso!');
+});
+
 
 // Set up view engine
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: false }));
 app.set('view engine', 'ejs');
 
+app.use ('/', home);
+app.use ('/about', about);
+app.use ('/albums', albums);
+app.use ('/events', events);
+app.use ('/gallery', gallery);
+app.use ('/suggestions', suggestions);
 
 app.get("/", async (req, res) => {
     res.render('index') ;
