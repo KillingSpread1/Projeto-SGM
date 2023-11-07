@@ -1,11 +1,20 @@
-h3{
-    color: blue; 
+body{
+    background-color: rgb(20, 20, 20) !important;
 }
 
-#header{
-    background-color: rgb(23, 23, 23) !important;
+.black{
+    background-color: rgb(37, 37, 37) !important;
 }
 
-#header-options{
-    color: rgb(255, 76, 41) !important;
+.red{
+    color: rgb(220, 53, 69) !important;
+}
+
+.no-border{
+    border: 0 !important;
+}
+
+.logo{
+    height: 60px;
+    margin-left: 10px;
 }
