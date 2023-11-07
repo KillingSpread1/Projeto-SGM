@@ -3,18 +3,33 @@ body{
 }
 
 .black{
-    background-color: rgb(37, 37, 37) !important;
+    background-color: rgba(37, 37, 37, 0.9) !important;
 }
 
 .red{
     color: rgb(220, 53, 69) !important;
 }
 
-.no-border{
-    border: 0 !important;
-}
-
 .logo{
     height: 60px;
     margin-left: 10px;
+}
+
+.video{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -1;
+}
+
+.title {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #fff; /* Cor do texto (opcional) */
 }
