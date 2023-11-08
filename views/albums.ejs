@@ -9,17 +9,36 @@
   <!-- Bootstrap CSS -->
   <%- include ("partials/head") %>
 
-  <title>Linkin Park</title>
+  <title>Linkin Park - The Albums</title>
   
 </head>
 
 <body>
 
-  <%- include ("partials/header") %>
-  <h3>asdasd</h3>
-  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4bYLTrlcqctyHck3fjhMgW?utm_source=generator" width="50%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0X576XiCW9uEtko6f6VkcU?utm_source=generator" width="50%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7q115ia4fQn9zonjpexWsY?utm_source=generator" width="50%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  <div class="background-logo">
+    <%- include ("partials/header") %>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb" id = "ml-2">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Albums</li>
+      </ol>
+    </nav>
+  
+    <div class="title">
+      <p class="display-1">Linkin Park - The Albums</p>
+    </div>
+
+    <% albums.forEach(album => { %>
+      <div class="card" style="width: 18rem;">
+        <img src="/images/<%= album.Cover %>"  class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= album.Name %></h5>
+        </div>
+      </div>
+    <% }) %>
+
+  </div>
+  
   <%- include ("partials/footer") %>
 </body>
 

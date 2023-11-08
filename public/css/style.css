@@ -1,9 +1,9 @@
 body{
-    background-color: rgb(20, 20, 20) !important;
+    background-color: black;
 }
 
 .black{
-    background-color: rgba(37, 37, 37, 0.9) !important;
+    background-color: rgba(57, 57, 57, 0.9) !important;
 }
 
 .red{
@@ -32,4 +32,53 @@ body{
     z-index: 1;
     text-align: center;
     color: #fff; /* Cor do texto (opcional) */
+}
+
+.background-logo{
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../images/logo_grey.png");
+}
+
+.breadcrumb-item.active {
+    color: rgb(220, 53, 69);
+    text-decoration: underline;
+}
+
+#aboutBoxesDisplay{
+    display: flex;
+}
+
+#aboutBoxesDisplay img{
+    width: 20rem;
+    height: 31.25rem;
+    margin-left: 3.125rem;
+    border-radius: 1.25rem; 
+}
+
+#aboutBoxesDisplay img:hover{
+    transform: scale(0.98);
+    filter: brightness(0.2);
+}
+
+#aboutBoxesDisplay a:hover .DescricaoBox{
+    visibility: visible;
+}
+
+.DescricaoBox{
+    visibility: hidden;
+    top: 55%;
+    position: absolute;
+    left: 11%;
+    font-size: 200%;
+}
+
+a {
+    color: white;
+}
+
+#ml-2{
+    margin-left: 2rem;
 }

@@ -4,6 +4,8 @@ const mongoose = require('mongoose')
 // Express instance
 const app = express();
 
+var album = require ('./models/Album');
+
 const home = require ('./routes/Home');
 const about = require ('./routes/About');
 const albums = require ('./routes/Albums');

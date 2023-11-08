@@ -15,9 +15,42 @@
 
 <body>
 
-  <%- include ("partials/header") %>
-  <h3>asdasd</h3>
-  <%- include ("partials/footer") %>
+  <div class="background-logo">
+
+    <%- include ("partials/header") %>
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb" id = "ml-2">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">About</li>
+      </ol>
+    </nav>
+
+    <div id = "aboutBoxesDisplay">
+      <a href="/about/history">
+        <img src="images/History.png" alt="history"/>
+        <p class="DescricaoBox">History</p>
+      </a>
+      <div class = "aboutEachBox">
+        <a href="/about/members">
+          <img src="images/Members.png" alt="members"/>
+        </a>
+      </div>
+      <div class = "aboutEachBox">
+        <a href="/about/influences">
+          <img src="images/Influences.png" alt="influences"/>
+        </a>
+      </div>
+      <div class = "aboutEachBox">
+        <a href="/about/discography">
+          <img src="images/Discography.png" alt="discography"/>
+        </a>
+      </div>
+    </div>
+  
+    <%- include ("partials/footer") %>
+  </div>
+
 </body>
 
 </html>
