@@ -10,6 +10,7 @@ const albums = require ('./routes/Albums');
 const events = require ('./routes/Events');
 const gallery = require ('./routes/Gallery');
 const suggestions = require ('./routes/Suggestions');
+const login = require ('./routes/Login');
 
 
 // Connect to db
@@ -33,6 +34,7 @@ app.use ('/albums', albums);
 app.use ('/events', events);
 app.use ('/gallery', gallery);
 app.use ('/suggestions', suggestions);
+app.use ('/login', login);
 
 app.get("/", async (req, res) => {
     res.render('index') ;
