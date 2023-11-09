@@ -2,8 +2,12 @@ body{
     background-color: black;
 }
 
+h1{
+    color: whitesmoke;
+}
+
 .black{
-    background-color: rgba(57, 57, 57, 0.9) !important;
+    background-color: rgba(38, 38, 38, 0.9) !important;
 }
 
 .red{
