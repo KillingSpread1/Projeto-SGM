@@ -105,4 +105,52 @@ a {
     font-weight: bold;
     font-size: 1.5rem;
 }
+
+.card:hover img {
+    filter: brightness(15%);
+}
+.card:hover .card-desc {
+    display: block;
+}
+.card .card-desc {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+
+    > .col,
+    > [class*="col-"] {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+.mr-3 {
+    margin-right: 5rem;
+}
+
+.ml-3 {
+    margin-left: 3.5rem;
+}
+.text-muted {
+    font-style: italic;
+    color: rgb(220, 53, 69) !important;
+}
+
+.card-desc {
+    font-style: italic;
+    color: white;
+}
+
+
+
+
     

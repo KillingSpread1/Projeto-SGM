@@ -30,21 +30,26 @@
     </div>
 
     
-    <div class="row justify-content-center">
+    <div class="row justify-content-center no-gutters ml-3">
+      
       <% albums.forEach(album => { %>
-        <div class="card col-md-4 ml-md-auto">
+        
+        <div class="card col-md-4 ml-md-auto mb-4 mr-3">
           <img src="/images/<%= album.Cover %>"  class="card-img-top" alt="<%= album.Name%> cover">
+          <div class="card-desc">
+            <p>Testes</p>
+          </div>
           <div class="card-body">
-            <h5 class="card-title"><%= album.Name %></h5>
+            <h5 class="card-title"><%= album.Name %><br><small class = "text-muted">Released in <%= album.Year %></small></h5>
           </div>
         </div>
-      <% }) %>
-    </div>
+        <% }) %>
+        </div>
 
-    <% include ("partials/footer") %>
-  </div>
-</body>
+        <% include ("partials/footer") %>
+        </div>
+        </body>
 
-</html>
+        </html>
 
     
