@@ -17,7 +17,8 @@
 
   <div class="background-logo">
     <%- include ("partials/header") %>
-    <nav aria-label="breadcrumb">
+    
+    <nav class="my-3" aria-label="breadcrumb">
       <ol class="breadcrumb" id = "ml-2">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
         <li class="breadcrumb-item active" aria-current="page">Albums</li>
@@ -28,18 +29,22 @@
       <p class="display-1">Linkin Park - The Albums</p>
     </div>
 
-    <% albums.forEach(album => { %>
-      <div class="card" style="width: 18rem;">
-        <img src="/images/<%= album.Cover %>"  class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title"><%= album.Name %></h5>
+    
+    <div class="row justify-content-center">
+      <% albums.forEach(album => { %>
+        <div class="card col-md-4 ml-md-auto">
+          <img src="/images/<%= album.Cover %>"  class="card-img-top" alt="<%= album.Name%> cover">
+          <div class="card-body">
+            <h5 class="card-title"><%= album.Name %></h5>
+          </div>
         </div>
-      </div>
-    <% }) %>
+      <% }) %>
+    </div>
 
+    <% include ("partials/footer") %>
   </div>
-  
-  <%- include ("partials/footer") %>
 </body>
 
 </html>
+
+    
