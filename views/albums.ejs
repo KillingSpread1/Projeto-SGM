@@ -19,7 +19,7 @@
     <%- include ("partials/header") %>
     
     <nav class="my-3" aria-label="breadcrumb">
-      <ol class="breadcrumb" id = "ml-2">
+      <ol class="breadcrumb" id="ml-2">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
         <li class="breadcrumb-item active" aria-current="page">Albums</li>
       </ol>
@@ -34,22 +34,60 @@
       
       <% albums.forEach(album => { %>
         
-        <div class="card col-md-4 ml-md-auto mb-4 mr-3">
+        <div class="card col-md-4 ml-md-auto mb-4 mr-3" id="<%= album.Name.toLowerCase().replace(/\s+/g, '-') %>">
           <img src="/images/<%= album.Cover %>"  class="card-img-top" alt="<%= album.Name%> cover">
-          <div class="card-desc">
-            <p>Testes</p>
+          
+          <div class="card-desc text-center">
+            <h5 class="wider-description"><%= album.Description %></h5>
           </div>
           <div class="card-body">
-            <h5 class="card-title"><%= album.Name %><br><small class = "text-muted">Released in <%= album.Year %></small></h5>
+            <h5 class="card-title">
+              <a href="#<%= album.Name.toLowerCase().replace(/\s+/g, '-') %>"><%= album.Name %></a>
+              <br>
+              <small class = "text-muted">Released in <%= album.Year %></small>
+            </h5>
           </div>
         </div>
         <% }) %>
-        </div>
+    </div>
 
-        <% include ("partials/footer") %>
-        </div>
-        </body>
 
-        </html>
+    <div class = "container album-section">
+      <% albums.forEach(album => { %>
+        <section id="<%= album.Name.toLowerCase().replace(/\s+/g, '-') %>-section" class="album-section">
+          <div class="container">
+            <div class="row mt-4">
+              <hr class="white-line">
+              <div class="col-md-4">
+                <img src="/images/<%= album.Cover %>" class="img-fluid card-img-top" alt="<%= album.Name %> cover">
+                <h2 class = "text-center mb-3 card-title"><%= album.Name %></h2>
+              </div>
+              <div class="col-md-4">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4HvcbAR8LisalXKt7cpqE1?utm_source=generator" width="100%" height="100rem" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4HvcbAR8LisalXKt7cpqE1?utm_source=generator" width="100%" height="100rem" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+      <% }) %>
+    </div>
+
+    <% include ("partials/footer") %>
+  </div>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+  
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
 
     

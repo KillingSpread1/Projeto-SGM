@@ -4,6 +4,7 @@ var Album = new mongoose.Schema({
     Name: String,
     Songs: [String],
     Cover: String,
+    Description: String,
     Year: Number
 });
 

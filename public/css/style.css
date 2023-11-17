@@ -99,6 +99,7 @@ a {
     margin-right: 1rem;
     width: 18rem;
 }
+
 .card-title {
     margin-bottom: var(--bs-card-title-spacer-y);
     color: rgb(220, 53, 69);
@@ -148,7 +149,23 @@ a {
 .card-desc {
     font-style: italic;
     color: white;
+    width: 15rem;
+    text-align: center;
 }
+
+.album-section{
+    position: relative;
+    margin-left: 1rem;
+    top: 5rem;
+}
+
+.white-line{
+    color:#fff;
+}
+
+
+
+
 
 
 
