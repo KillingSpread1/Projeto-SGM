@@ -42,7 +42,7 @@
           </div>
           <div class="card-body">
             <h5 class="card-title">
-              <a href="#<%= album.Name.toLowerCase().replace(/\s+/g, '-') %>"><%= album.Name %></a>
+              <a href="#<%=album.Name.toLowerCase().replace(/\s+/g, '-')%>"><%= album.Name %></a>
               <br>
               <small class = "text-muted">Released in <%= album.Year %></small>
             </h5>
@@ -51,11 +51,8 @@
         <% }) %>
     </div>
 
-
-    <div class = "container album-section">
       <% albums.forEach(album => { %>
-        <% console.log(album.Name.toLowerCase().replace(/\s+/g, '-')) %>
-        <section id="<%= album.Name.toLowerCase().replace(/\s+/g, '-') %>-section" class="album-section">
+        <section id="<%=album.Name.toLowerCase().replace(/\s+/g, '-')%>" class="album-section">
           <div class="container">
             <div class="row mt-4">
               <hr class="white-line">
@@ -72,7 +69,6 @@
           </div>
         </section>
       <% }) %>
-    </div>
 
     <% include ("partials/footer") %>
   </div>
