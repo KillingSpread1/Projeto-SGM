@@ -14,7 +14,6 @@ const gallery = require ('./routes/Gallery');
 const suggestions = require ('./routes/Suggestions');
 const login = require ('./routes/Login');
 
-
 // Connect to db
 mongoose.connect('mongodb+srv://diogo02gouveia:kMUd8BVOzpduYQQl@cluster0.dgkpjo4.mongodb.net/');
 const db = mongoose.connection;
@@ -22,7 +21,6 @@ db.on('error', console.error.bind(console, 'Erro ao conectar à base de dados'))
 db.once('open', function() {
   console.log('Conectou-se à base de dados com sucesso!');
 });
-
 
 // Set up view engine
 app.use(express.json());
