@@ -23,12 +23,18 @@
     </ol>
   </nav>
 
-  <div id="HistoriaComponentes">
-    <% members.forEach(member => { %>
-        <h3><%= member.Name %></h3>
-        <div class="ConteudoHistoria">
+  <div id="MembrosDisplay">
+    <h1>Members of Linkin Park</h1>
+    <% members.forEach((member, index) => { %>
+      <div class="CadaMembro">
+        <% if (index % 2 === 0) { %>
+          <img src="/images/<%= member.Name %>.png" alt="<%= member.Name %>" />
           <p><%= member.Description %></p>
-        </div>
+        <% } else { %>
+          <p><%= member.Description %></p>
+          <img src="/images/<%= member.Name %>.png" alt="<%= member.Name %>" />
+        <% } %>
+      </div>
     <% }) %>
   </div>
 
