@@ -253,3 +253,11 @@ html {
 scroll-container {
     scroll-behavior: smooth !important;
   }
+  
+.btn-primary{
+    background-color: rgb(220, 53, 69) !important;
+    border-color: rgb(220, 53, 69) !important;
+    position: relative;
+    left: -55rem;
+    top: -5rem;
+}
