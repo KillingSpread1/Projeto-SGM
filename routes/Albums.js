@@ -5,7 +5,7 @@ const Album = mongoose.model('Album');
 
 router.get('/', async function (req, res) {
     try {
-        const albums = await Album.find({}).select('Name Songs Cover Description Year');
+        const albums = await Album.find({}).select('Name Album Cover Description Year');    
         res.render('albums', { albums });
     } catch (err) {
         console.error(err);

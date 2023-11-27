@@ -163,11 +163,10 @@ a {
     color:#fff;
 }
 
+html {
+    scroll-behavior: smooth !important;
+}
 
-
-
-
-
-
-
-    
+scroll-container {
+    scroll-behavior: smooth !important;
+  }
