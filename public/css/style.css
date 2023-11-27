@@ -124,6 +124,38 @@ h1{
     border-radius: 2em;
 }
 
+#MembrosDisplay{
+    color: white;
+    margin-left: 12%;
+    margin-top: 3%;
+    width: 78%;    
+    align-items: center;
+}
+
+#MembrosDisplay h1{
+    text-align: center;
+    margin-bottom: 3%;
+}
+
+.CadaMembro{
+    display: flex;
+    margin-bottom: 6%;
+    background-color: rgb(65, 66, 66, 0.4);
+    border-radius: 2em;
+   }
+
+.CadaMembro img{
+    width: 30%;
+}
+
+.CadaMembro p{
+    margin-left: 2%;
+    margin-right: 2%;
+    font-size: larger;
+    text-align: center;
+    align-self: center;
+}
+
 a {
     color: white;
 }
