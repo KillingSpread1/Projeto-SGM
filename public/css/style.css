@@ -2,6 +2,11 @@ body{
     background-color: black;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 h1{
     color: whitesmoke;
 }
@@ -31,19 +36,20 @@ h1{
     z-index: -1;
 }
 
-.title {
+.title { 
     position: relative;
     z-index: 1;
     text-align: center;
-    color: #fff; /* Cor do texto (opcional) */
+    color: #fff;
+    margin-bottom: 5rem;
 }
 
 .background-logo{
-    height: 100vh;
+    height: 138vh; /* Pus esta medida para que cubra o Albums page, excluindo a secçao de cada album*/
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url("../images/logo_grey.png");
+    background-image: url("../images/logo_grey-transformed.png");
 }
 
 .breadcrumb-item.active {
@@ -163,3 +169,87 @@ a {
 #ml-2{
     margin-left: 2rem;
 }
+
+
+.card {
+    border:none;
+    background-color: transparent !important; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-right: 1rem;
+    width: 18rem;
+}
+
+.card-title {
+    margin-bottom: var(--bs-card-title-spacer-y);
+    color: rgb(220, 53, 69);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.card:hover img {
+    filter: brightness(15%);
+}
+.card:hover .card-desc {
+    display: block;
+}
+.card .card-desc {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+
+    > .col,
+    > [class*="col-"] {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+.mr-3 {
+    margin-right: 5rem;
+}
+
+.ml-3 {
+    margin-left: 3.5rem;
+}
+.text-muted {
+    font-style: italic;
+    color: rgb(220, 53, 69) !important;
+}
+
+.card-desc {
+    font-style: italic;
+    color: white;
+    width: 15rem;
+    text-align: center;
+}
+
+.album-section{
+    position: relative;
+    margin-left: 1rem;
+    top: 5rem;
+}
+
+.white-line{
+    color:#fff;
+}
+
+html {
+    scroll-behavior: smooth !important;
+}
+
+scroll-container {
+    scroll-behavior: smooth !important;
+  }

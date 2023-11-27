@@ -26,7 +26,6 @@ db.once('open', function() {
   console.log('Conectou-se à base de dados com sucesso!');
 });
 
-
 // Set up view engine
 app.use(express.json());
 app.use(express.static(__dirname + '/public'));
