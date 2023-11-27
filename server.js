@@ -7,6 +7,7 @@ const app = express();
 var album = require ('./models/Album');
 var history = require ('./models/History');
 var member = require ('./models/Members');
+var event = require ('./models/Event');
 
 const home = require ('./routes/Home');
 const about = require ('./routes/About');

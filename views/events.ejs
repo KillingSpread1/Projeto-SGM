@@ -15,9 +15,23 @@
 
 <body>
 
-  <%- include ("partials/header") %>
-  <h3>asdasd</h3>
-  <%- include ("partials/footer") %>
+  <div class="background-logo">
+    <%- include ("partials/header") %>
+    
+    <nav class="my-3" aria-label="breadcrumb">
+      <ol class="breadcrumb" id="ml-2">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Events</li>
+      </ol>
+    </nav>
+  
+    <div class="title">
+      <p class="display-1">Events</p>
+      <a href="javascript:history.back()" class="btn btn-primary ml-3 return">Return</a>
+    </div>
+  
+    <%- include ("partials/footer") %>
+  </div>
 </body>
 
 </html>
