@@ -5,17 +5,11 @@ const Events = mongoose.model('Event');
 
 router.get('/', async function (req, res) { 
     try {
-        const event = await Events.create({
-            Name: 'Live in Birmingham 2017',
-            Description: "The last Linkin Park concert with Chester Bennington. After this, the band didn't perform anymore up to this date.",
-            Type: 'Popular',
-            Videos: [],
-            Images: []
-        });
-        res.render('events.ejs');
+        const events = await Events.find({}).select('Name Description Type Videos Images');    
+        res.render('events', { events });
     } catch (err) {
         console.error(err);
-        res.status(500).send('Error creating event');
+        res.status(500).send('An error ocurred');
     }
 });
 
