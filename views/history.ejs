@@ -14,30 +14,30 @@
 
 <body>
   <%- include ("partials/header") %>
-
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb" id = "ml-2">
-      <li class="breadcrumb-item"><a href="/">Home</a></li>
-      <li class="breadcrumb-item"><a href="/about">About</a></li>
-      <li class="breadcrumb-item active" aria-current="page">History</li>
-    </ol>
-  </nav>
-
-  <div id="HistoriaComponentes">
-    <% histories.forEach(history => { %>
-        <h3><%= history.Title %></h3>
-        <div class="ConteudoHistoria">
-          <p><%= history.Description %></p>
-          <% if (history.Image !== "") { %>
-            <img src="/images/<%= history.Image %>.png" alt="history image" />
-          <% } %> 
-        </div>
-    <% }) %>
+  <div class="background-logo">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb" id = "ml-2">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/about">About</a></li>
+        <li class="breadcrumb-item active" aria-current="page">History</li>
+      </ol>
+    </nav>
+  
+    <div id="HistoriaComponentes">
+      <% histories.forEach(history => { %>
+          <h3><%= history.Title %></h3>
+          <div class="ConteudoHistoria">
+            <p><%= history.Description %></p>
+            <% if (history.Image !== "") { %>
+              <img src="/images/<%= history.Image %>.png" alt="history image" />
+            <% } %> 
+          </div>
+      <% }) %>
+    </div>  
+    <%- include ("partials/footer") %>
   </div>
-  
-  
 
-  <%- include ("partials/footer") %>
+
 </body>
 
 </html>

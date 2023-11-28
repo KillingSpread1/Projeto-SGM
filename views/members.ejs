@@ -15,30 +15,33 @@
 <body>
   <%- include ("partials/header") %>
 
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb" id = "ml-2">
-      <li class="breadcrumb-item"><a href="/">Home</a></li>
-      <li class="breadcrumb-item"><a href="/about">About</a></li>
-      <li class="breadcrumb-item active" aria-current="page">History</li>
-    </ol>
-  </nav>
+  <div class="background-logo">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb" id = "ml-2">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/about">About</a></li>
+        <li class="breadcrumb-item active" aria-current="page">History</li>
+      </ol>
+    </nav>
 
-  <div id="MembrosDisplay">
-    <h1>Members of Linkin Park</h1>
-    <% members.forEach((member, index) => { %>
-      <div class="CadaMembro">
-        <% if (index % 2 === 0) { %>
-          <img src="/images/<%= member.Name %>.png" alt="<%= member.Name %>" />
-          <p><%= member.Description %></p>
-        <% } else { %>
-          <p><%= member.Description %></p>
-          <img src="/images/<%= member.Name %>.png" alt="<%= member.Name %>" />
-        <% } %>
-      </div>
-    <% }) %>
+    <div id="MembrosDisplay">
+      <h1>Members of Linkin Park</h1>
+      <% members.forEach((member, index) => { %>
+        <div class="CadaMembro">
+          <% if (index % 2 === 0) { %>
+            <img src="/images/<%= member.Name %>.png" alt="<%= member.Name %>" />
+            <p><%= member.Description %></p>
+          <% } else { %>
+            <p><%= member.Description %></p>
+            <img src="/images/<%= member.Name %>.png" alt="<%= member.Name %>" />
+          <% } %>
+        </div>
+      <% }) %>
+    </div>    
+    <%- include ("partials/footer") %>
   </div>
+  
 
-  <%- include ("partials/footer") %>
 </body>
 
 </html>

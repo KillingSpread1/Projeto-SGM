@@ -19,6 +19,15 @@ h1{
     color: rgb(220, 53, 69) !important;
 }
 
+.fixed-bottom{
+    position: relative;
+    margin-top: 11%;
+}
+
+.EspaçoVazio{
+    height: 9.4%;
+}
+
 .logo{
     height: 60px;
     margin-left: 10px;
@@ -135,7 +144,6 @@ h1{
     margin-left: 12%;
     margin-top: 3%;
     width: 78%;    
-    align-items: center;
 }
 
 #MembrosDisplay h1{
@@ -146,7 +154,7 @@ h1{
 .CadaMembro{
     display: flex;
     margin-bottom: 6%;
-    background-color: rgb(65, 66, 66, 0.4);
+    background-color: rgba(44, 43, 43, 0.8);
     border-radius: 2em;
    }
 
