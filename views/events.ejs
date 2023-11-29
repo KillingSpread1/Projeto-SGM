@@ -34,6 +34,24 @@
       <button type="button" class="btn btn-secondary">Popular</button>
       <button type="button" class="btn btn-secondary">Future</button>
     </div>
+
+    <div class = "container">
+      <% events.forEach(event => { %>
+        <section id="<%=event.Name%>" class="album-section">
+          <div class="container">
+            <h3><%= event.Name %></h3>
+            <div class="row mt-4">
+              <hr class="white-line">
+              <div class="col-md-4">
+                <p><%= event.Description %> </p>
+              </div>
+              <div class="col-md-4">
+                
+            </div>
+          </div>
+        </scroll-page>
+        <% }) %>
+    </div>
   
     <%- include ("partials/footer") %>
   </div>
