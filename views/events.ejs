@@ -31,30 +31,90 @@
     </div>
 
     <div class="btn-group center text-center" role="group">
-      <button type="button" class="btn btn-secondary">Popular</button>
-      <button type="button" class="btn btn-secondary">Future</button>
+      <button type="button" id="btnPopular" class="btn btn-secondary">Popular</button>
+      <button type="button" id="btnFuture" class="btn btn-secondary">Future</button>
     </div>
 
-    <div class = "container">
+    <div class="container" id="Events">
+      <!-- BEGIN: Default display of popular events -->
+
       <% events.forEach(event => { %>
-        <section id="<%=event.Name%>" class="album-section">
-          <div class="container">
-            <h3><%= event.Name %></h3>
-            <div class="row mt-4">
-              <hr class="white-line">
-              <div class="col-md-4">
-                <p><%= event.Description %> </p>
+        <% if (event.Type === 'Popular') { %>
+          <section id="<%=event.Name%>" class="album-section event-name mb-5">
+            <div class="container">
+              <h3><%= event.Name %></h3>
+              <div class="row mt-4">
+                <hr class="white-line">
+                <div class="col-md-4">
+                  <p class="event-description"><%= event.Description %> </p>
+                </div>
+                <div class="col-md-4">
+                  
+                </div>
               </div>
-              <div class="col-md-4">
-                
             </div>
-          </div>
-        </scroll-page>
-        <% }) %>
+          </section>
+        <% } %>
+      <% }) %>
+      <!-- END: Default display of popular events -->
     </div>
   
     <%- include ("partials/footer") %>
   </div>
-</body>
 
-</html>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('btnPopular').addEventListener('click', function () {
+        filterEvents('Popular');
+      });
+
+      document.getElementById('btnFuture').addEventListener('click', function () {
+        filterEvents('Future');
+      });
+
+      function filterEvents(type) {
+        var eventsContainer = document.getElementById('Events');
+        eventsContainer.innerHTML = ''; // Clear the div
+        // Recreate the div based on the button pressed
+        "<% events.forEach(event => { %>"
+          if ("<%= event.Type %>" == type) {
+            var section = document.createElement('section');
+            section.id = "<%= event.Name %>";
+            section.className = 'album-section event-name mb-5';
+
+            var container = document.createElement('div');
+            container.className = 'container';
+
+            var heading = document.createElement('h3');
+            heading.innerText = "<%= event.Name %>";
+
+            var row = document.createElement('div');
+            row.className = 'row mt-4';
+
+            var hr = document.createElement('hr');
+            hr.className = 'white-line';
+
+            var col1 = document.createElement('div');
+            col1.className = 'col-md-4';
+
+            var description = document.createElement('p');
+            description.className = 'event-description';
+            description.innerText = "<%= event.Description %>";
+
+            var col2 = document.createElement('div');
+            col2.className = 'col-md-4';
+
+            row.appendChild(hr);
+            col1.appendChild(description);
+            row.appendChild(col1);
+            row.appendChild(col2);
+            container.appendChild(heading);
+            container.appendChild(row);
+            section.appendChild(container);
+            eventsContainer.appendChild(section);
+          }
+        "<% }) %>" ;
+      }
+    });
+  </script>
+</body>

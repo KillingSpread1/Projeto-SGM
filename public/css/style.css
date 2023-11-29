@@ -288,3 +288,15 @@ scroll-container {
     background-color: rgb(220, 53, 69) !important;
     border-color: rgb(220, 53, 69) !important;
 }
+
+.event-name {
+    color: white;
+}
+  
+.event-description {
+    color: white;
+}
+  
+.white-line {
+    border-top: 1px solid white;
+}
