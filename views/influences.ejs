@@ -23,9 +23,18 @@
         <li class="breadcrumb-item active" aria-current="page">Influences</li>
       </ol>
     </nav>
-  </div>
-  
 
+    <div class="HistoriaComponentes">
+      <% influences.forEach(influence => { %>
+          <h3><%= influence.Name %></h3>
+          <div class="ConteudoHistoria">
+            <p><%= influence.Description %></p>
+            <img src="/images/<%= influence.Name %>.png" alt="<%= influence.Name %>" />
+          </div>
+      <% }) %>
+    </div>  
+    <%- include ("partials/footer") %>
+  </div>
 </body>
 
 </html>
