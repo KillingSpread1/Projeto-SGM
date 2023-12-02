@@ -9,6 +9,7 @@ var album = require ('./models/Album');
 var history = require ('./models/History');
 var member = require ('./models/Members');
 var influence = require ('./models/Influences');
+var disco = require ('./models/Discography');
 var admin = require ('./models/Admin');
 
 async function createDefaultAdmin() {
@@ -39,6 +40,7 @@ const login = require ('./routes/Login');
 const histories = require ('./routes/History');
 const members = require ('./routes/Members');
 const influences = require ('./routes/Influences');
+const discography = require ('./routes/Discography');
 
 // Connect to db
 mongoose.connect('mongodb+srv://diogo02gouveia:kMUd8BVOzpduYQQl@cluster0.dgkpjo4.mongodb.net/');
@@ -65,6 +67,7 @@ app.use ('/login', login);
 app.use ('/about/history', histories);
 app.use ('/about/members', members);
 app.use ('/about/influences', influences);
+app.use ('/about/discography', discography);
 
 app.get("/", async (req, res) => {
     res.render('index') ;

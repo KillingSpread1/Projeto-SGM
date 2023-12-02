@@ -20,23 +20,19 @@
       <ol class="breadcrumb" id = "ml-2">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
         <li class="breadcrumb-item"><a href="/about">About</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Members</li>
+        <li class="breadcrumb-item active" aria-current="page">Discography</li>
       </ol>
     </nav>
 
     <div class="MembrosDisplay">
-      <h1>Members of Linkin Park</h1>
-      <% members.forEach((member, index) => { %>
-        <div class="CadaMembro">
-          <% if (index % 2 === 0) { %>
-            <img src="/images/<%= member.Name %>.png" alt="<%= member.Name %>" />
-            <p><%= member.Description %></p>
-          <% } else { %>
-            <p><%= member.Description %></p>
-            <img src="/images/<%= member.Name %>.png" alt="<%= member.Name %>" />
-          <% } %>
-        </div>
-      <% }) %>
+      <h1>Discography</h1>
+        <% albums.forEach(album => { %>
+            <div class="DiscografiaDisplay">
+                <img src="/images/<%= album.Image %>" alt="<%= album.Title %>" />
+                <p><%= album.Description %></p>
+                <a href="/albums#<%=album.Title%>">Go to the album</a>
+            </div>
+        <% }) %>
     </div>    
     <%- include ("partials/footer") %>
   </div>

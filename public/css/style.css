@@ -137,14 +137,14 @@ h1{
     width: 30%;
 }
 
-#MembrosDisplay{
+.MembrosDisplay{
     color: white;
     margin-left: 12%;
     margin-top: 3%;
     width: 78%;    
 }
 
-#MembrosDisplay h1{
+.MembrosDisplay h1{
     text-align: center;
     margin-bottom: 3%;
 }
@@ -154,7 +154,7 @@ h1{
     margin-bottom: 6%;
     background-color: rgba(44, 43, 43, 0.8);
     border-radius: 2em;
-   }
+}
 
 .CadaMembro img{
     width: 30%;
@@ -166,6 +166,35 @@ h1{
     font-size: larger;
     text-align: center;
     align-self: center;
+}
+
+.DiscografiaDisplay{
+    display: flex;
+    margin-bottom: 6%;
+    background-color: rgba(44, 43, 43, 0.8);
+    border-radius: 2em;
+    position: relative;
+    overflow: hidden;
+}
+
+.DiscografiaDisplay img{
+    width: 25%;
+}
+
+.DiscografiaDisplay p{
+    margin-left: 2%;
+    margin-right: 2%;
+    font-size: larger;
+    text-align: center;
+    align-self: center;
+}
+
+.DiscografiaDisplay a{
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+    color: white;
+
 }
 
 a {
