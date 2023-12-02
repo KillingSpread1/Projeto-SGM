@@ -1,5 +1,6 @@
 const express = require('express');
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const bcryptjs = require('bcryptjs');
 
 // Express instance
 const app = express();
@@ -8,6 +9,25 @@ var album = require ('./models/Album');
 var history = require ('./models/History');
 var member = require ('./models/Members');
 var influence = require ('./models/Influences');
+var admin = require ('./models/Admin');
+
+async function createDefaultAdmin() {
+  try {
+    const adminCount = await admin.countDocuments();
+
+    if (adminCount === 0) {
+      const defaultAdmin = new admin({
+        Username: 'admin',
+        Password: bcryptjs.hashSync('123456', 10),
+      });
+
+      await defaultAdmin.save();
+      console.log('Admin padrão criado com sucesso!');
+    }
+  } catch (error) {
+    console.error('Erro ao criar o admin padrão:', error);
+  }
+}
 
 const home = require ('./routes/Home');
 const about = require ('./routes/About');
@@ -26,6 +46,7 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Erro ao conectar à base de dados'));
 db.once('open', function() {
   console.log('Conectou-se à base de dados com sucesso!');
+  createDefaultAdmin();
 });
 
 // Set up view engine
@@ -48,7 +69,6 @@ app.use ('/about/influences', influences);
 app.get("/", async (req, res) => {
     res.render('index') ;
 });
-
 
 // Listening on port 3000
 var serverListenCallback = function () {
