@@ -38,18 +38,44 @@
     <div class="container" id="Events">
       <!-- BEGIN: Default display of popular events -->
 
-      <% events.forEach(event => { %>
+      <% events.forEach((event,eventIndex) => { %>
         <% if (event.Type === 'Popular') { %>
           <section id="<%=event.Name%>" class="album-section event-name mb-5">
             <div class="container">
               <h3><%= event.Name %></h3>
               <div class="row mt-4">
                 <hr class="white-line">
-                <div class="col-md-4">
+                <div class="col-md-4 mt-3">
                   <p class="event-description"><%= event.Description %> </p>
                 </div>
+                <div class="col-md-4"></div>
                 <div class="col-md-4">
-                  
+            
+                  <div class="d-flex justify-content-center">
+
+                    <div id="<%= 'carouselExampleControlsVideos' + eventIndex %>" class="carousel slide" data-ride="carousel" style="width: 80vw; margin-left: auto; margin-right: auto;">
+                      <div class="carousel-inner">
+                        <% event.Videos.forEach((video, index) => { %>
+                          <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+                            <video controls class="w-100 h-100">
+                              <source src="/videos/<%= video %>" type="video/mp4">
+                              Your browser does not support the video tag.
+                            </video>
+                            <label class="video-name"><%= video.replace('.mp4', '') %></label>
+                          </div>
+                        <% }) %>
+                      </div>
+                      <a class="carousel-control-prev" href="#<%= 'carouselExampleControlsVideos' + eventIndex %>" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only"></span>
+                      </a>
+                      <a class="carousel-control-next" href="#<%= 'carouselExampleControlsVideos' + eventIndex %>" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only"></span>
+                      </a>
+                    </div>
+                  </div>
+            
                 </div>
               </div>
             </div>
@@ -117,4 +143,19 @@
       }
     });
   </script>
+
+<script>
+  $(document).ready(function () {
+      $(".carousel-control-prev, .carousel-control-next").click(function (event) {
+          event.preventDefault();  // Adicione esta linha
+          var targetCarouselId = $(this).attr("href");
+          $(targetCarouselId).carousel('prev');
+      });
+
+      $(".toggleCarouselBtn").click(function () {
+          var targetCarouselId = $(this).data("target");
+          $("#" + targetCarouselId).toggle();
+      });
+  });
+</script>
 </body>
