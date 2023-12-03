@@ -1,16 +1,17 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const Album = mongoose.model('Album');
+const History = mongoose.model('History');
 
 router.get('/', async function (req, res) {
     try {
-        const albums = await Album.find({}).select('Name Album Cover Description Year');    
-        res.render('albums', { albums });
+        const histories = await History.find({});
+        res.render('history', { histories });
     } catch (err) {
         console.error(err);
         res.status(500).send('An error ocurred');
     }
 });
+
 
 module.exports = router;

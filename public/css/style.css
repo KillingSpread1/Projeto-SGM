@@ -59,6 +59,10 @@ h1{
 
 #aboutBoxesDisplay{
     display: flex;
+    max-width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 #aboutBoxesDisplay img{
@@ -66,6 +70,7 @@ h1{
     height: 31.25rem;
     margin-left: 3.125rem;
     border-radius: 1.25rem; 
+    position: relative;
 }
 
 #aboutBoxesDisplay img:hover{
@@ -78,11 +83,83 @@ h1{
 }
 
 .DescricaoBox{
+    bottom: 28%;
     visibility: hidden;
-    top: 55%;
-    position: absolute;
-    left: 11%;
+    text-align: center;
     font-size: 200%;
+    position: absolute;
+    translate: 9rem;
+    pointer-events: none;
+}
+
+#TitleAboutPage{
+    text-align: center;
+    color: white;
+    position: relative;
+    margin-bottom: 2%;
+}
+
+#HistoriaComponentes{
+    color: white;
+    margin-left: 12%;
+    margin-top: 3%;
+    width: 78%;    
+    align-items: center;
+}
+
+#HistoriaComponentes h3{
+    margin-left: 7%;
+    margin-bottom: 4%;
+}
+
+.ConteudoHistoria {
+    display: flex;
+    margin-bottom: 8%;
+}
+
+.ConteudoHistoria p {
+    width: 60%;
+    margin-right: 10%;
+    text-align: justify;
+    font-size: large;
+}
+  
+.ConteudoHistoria img {
+    width: 30%;
+    vertical-align: middle;
+    border-radius: 2em;
+}
+
+#MembrosDisplay{
+    color: white;
+    margin-left: 12%;
+    margin-top: 3%;
+    width: 78%;    
+    align-items: center;
+}
+
+#MembrosDisplay h1{
+    text-align: center;
+    margin-bottom: 3%;
+}
+
+.CadaMembro{
+    display: flex;
+    margin-bottom: 6%;
+    background-color: rgb(65, 66, 66, 0.4);
+    border-radius: 2em;
+   }
+
+.CadaMembro img{
+    width: 30%;
+}
+
+.CadaMembro p{
+    margin-left: 2%;
+    margin-right: 2%;
+    font-size: larger;
+    text-align: center;
+    align-self: center;
 }
 
 a {
@@ -92,6 +169,7 @@ a {
 #ml-2{
     margin-left: 2rem;
 }
+
 
 .card {
     border:none;
@@ -175,3 +253,50 @@ html {
 scroll-container {
     scroll-behavior: smooth !important;
   }
+  
+.btn-primary{
+    background-color: rgb(220, 53, 69) !important;
+    border-color: rgb(220, 53, 69) !important;
+    position: relative;
+    left: -55rem;
+    top: -5rem;
+}
+
+@media (min-width: 1024px) {
+    .center{
+        display: flex;
+        justify-content: center;
+        width: 35rem;
+        position: relative;
+        left: 42rem;
+        top:-6rem;
+    }
+}
+
+@media (max-width: 800px) {
+    .center {
+        display: flex;
+        justify-content: center;
+        width: 35rem;
+        position: relative;
+        left: 30rem;
+        top:-6rem;
+    } 
+}
+
+.btn-secondary{
+    background-color: rgb(220, 53, 69) !important;
+    border-color: rgb(220, 53, 69) !important;
+}
+
+.event-name {
+    color: white;
+}
+  
+.event-description {
+    color: white;
+}
+  
+.white-line {
+    border-top: 1px solid white;
+}

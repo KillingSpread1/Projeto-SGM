@@ -15,9 +15,147 @@
 
 <body>
 
-  <%- include ("partials/header") %>
-  <h3>asdasd</h3>
-  <%- include ("partials/footer") %>
-</body>
+  <div class="background-logo">
+    <%- include ("partials/header") %>
+    
+    <nav class="my-3" aria-label="breadcrumb">
+      <ol class="breadcrumb" id="ml-2">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Events</li>
+      </ol>
+    </nav>
+  
+    <div class="title">
+      <p class="display-1">Events</p>
+      <a href="javascript:history.back()" class="btn btn-primary ml-3 return">Return</a>
+    </div>
 
-</html>
+    <div class="btn-group center text-center" role="group">
+      <button type="button" id="btnPopular" class="btn btn-secondary">Popular</button>
+      <button type="button" id="btnFuture" class="btn btn-secondary">Future</button>
+    </div>
+
+    <div class="container" id="Events">
+      <!-- BEGIN: Default display of popular events -->
+
+      <% events.forEach((event,eventIndex) => { %>
+        <% if (event.Type === 'Popular') { %>
+          <section id="<%=event.Name%>" class="album-section event-name mb-5">
+            <div class="container">
+              <h3><%= event.Name %></h3>
+              <div class="row mt-4">
+                <hr class="white-line">
+                <div class="col-md-4 mt-3">
+                  <p class="event-description"><%= event.Description %> </p>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+            
+                  <div class="d-flex justify-content-center">
+
+                    <div id="<%= 'carouselExampleControlsVideos' + eventIndex %>" class="carousel slide" data-ride="carousel" style="width: 80vw; margin-left: auto; margin-right: auto;">
+                      <div class="carousel-inner">
+                        <% event.Videos.forEach((video, index) => { %>
+                          <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+                            <video controls class="w-100 h-100">
+                              <source src="/videos/<%= video %>" type="video/mp4">
+                              Your browser does not support the video tag.
+                            </video>
+                            <label class="video-name"><%= video.replace('.mp4', '') %></label>
+                          </div>
+                        <% }) %>
+                      </div>
+                      <a class="carousel-control-prev" href="#<%= 'carouselExampleControlsVideos' + eventIndex %>" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only"></span>
+                      </a>
+                      <a class="carousel-control-next" href="#<%= 'carouselExampleControlsVideos' + eventIndex %>" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only"></span>
+                      </a>
+                    </div>
+                  </div>
+            
+                </div>
+              </div>
+            </div>
+          </section>
+        <% } %>
+      <% }) %>
+      <!-- END: Default display of popular events -->
+    </div>
+  
+    <%- include ("partials/footer") %>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('btnPopular').addEventListener('click', function () {
+        filterEvents('Popular');
+      });
+
+      document.getElementById('btnFuture').addEventListener('click', function () {
+        filterEvents('Future');
+      });
+
+      function filterEvents(type) {
+        var eventsContainer = document.getElementById('Events');
+        eventsContainer.innerHTML = ''; // Clear the div
+        // Recreate the div based on the button pressed
+        "<% events.forEach(event => { %>"
+          if ("<%= event.Type %>" == type) {
+            var section = document.createElement('section');
+            section.id = "<%= event.Name %>";
+            section.className = 'album-section event-name mb-5';
+
+            var container = document.createElement('div');
+            container.className = 'container';
+
+            var heading = document.createElement('h3');
+            heading.innerText = "<%= event.Name %>";
+
+            var row = document.createElement('div');
+            row.className = 'row mt-4';
+
+            var hr = document.createElement('hr');
+            hr.className = 'white-line';
+
+            var col1 = document.createElement('div');
+            col1.className = 'col-md-4';
+
+            var description = document.createElement('p');
+            description.className = 'event-description';
+            description.innerText = "<%= event.Description %>";
+
+            var col2 = document.createElement('div');
+            col2.className = 'col-md-4';
+
+            row.appendChild(hr);
+            col1.appendChild(description);
+            row.appendChild(col1);
+            row.appendChild(col2);
+            container.appendChild(heading);
+            container.appendChild(row);
+            section.appendChild(container);
+            eventsContainer.appendChild(section);
+          }
+        "<% }) %>" ;
+      }
+    });
+  </script>
+
+<script>
+  $(document).ready(function () {
+      $(".carousel-control-prev, .carousel-control-next").click(function (event) {
+          event.preventDefault();  // Adicione esta linha
+          var targetCarouselId = $(this).attr("href");
+          $(targetCarouselId).carousel('prev');
+      });
+
+      $(".toggleCarouselBtn").click(function () {
+          var targetCarouselId = $(this).data("target");
+          $("#" + targetCarouselId).toggle();
+      });
+  });
+</script>
+</body>

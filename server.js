@@ -5,6 +5,9 @@ const mongoose = require('mongoose')
 const app = express();
 
 var album = require ('./models/Album');
+var history = require ('./models/History');
+var member = require ('./models/Members');
+var event = require ('./models/Event');
 
 const home = require ('./routes/Home');
 const about = require ('./routes/About');
@@ -13,6 +16,8 @@ const events = require ('./routes/Events');
 const gallery = require ('./routes/Gallery');
 const suggestions = require ('./routes/Suggestions');
 const login = require ('./routes/Login');
+const histories = require ('./routes/History');
+const members = require ('./routes/Members');
 
 // Connect to db
 mongoose.connect('mongodb+srv://diogo02gouveia:kMUd8BVOzpduYQQl@cluster0.dgkpjo4.mongodb.net/');
@@ -35,6 +40,8 @@ app.use ('/events', events);
 app.use ('/gallery', gallery);
 app.use ('/suggestions', suggestions);
 app.use ('/login', login);
+app.use ('/about/history', histories);
+app.use ('/about/members', members);
 
 app.get("/", async (req, res) => {
     res.render('index') ;
