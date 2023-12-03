@@ -8,6 +8,7 @@ const app = express();
 var album = require ('./models/Album');
 var history = require ('./models/History');
 var member = require ('./models/Members');
+var event = require ('./models/Event');
 var influence = require ('./models/Influences');
 var admin = require ('./models/Admin');
 
@@ -28,6 +29,7 @@ async function createDefaultAdmin() {
     console.error('Erro ao criar o admin padrão:', error);
   }
 }
+
 
 const home = require ('./routes/Home');
 const about = require ('./routes/About');

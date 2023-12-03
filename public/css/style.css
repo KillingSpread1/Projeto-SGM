@@ -258,6 +258,55 @@ html {
 
 scroll-container {
     scroll-behavior: smooth !important;
+  }
+  
+.btn-primary{
+    background-color: rgb(220, 53, 69) !important;
+    border-color: rgb(220, 53, 69) !important;
+    position: relative;
+    left: -55rem;
+    top: -5rem;
+}
+
+@media (min-width: 1024px) {
+    .center{
+        display: flex;
+        justify-content: center;
+        width: 35rem;
+        position: relative;
+        left: 42rem;
+        top:-6rem;
+    }
+}
+
+@media (max-width: 800px) {
+    .center {
+        display: flex;
+        justify-content: center;
+        width: 35rem;
+        position: relative;
+        left: 30rem;
+        top:-6rem;
+    } 
+}
+
+.btn-secondary{
+    background-color: rgb(220, 53, 69) !important;
+    border-color: rgb(220, 53, 69) !important;
+}
+
+.event-name {
+    color: white;
+}
+  
+.event-description {
+    color: white;
+}
+  
+.white-line {
+    border-top: 1px solid white;
+}
+=======
 }
 
 #login{
@@ -285,3 +334,4 @@ scroll-container {
 .form-group{
     margin-top: 20px;
 }
+
