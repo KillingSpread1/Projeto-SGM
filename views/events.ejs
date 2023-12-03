@@ -136,84 +136,99 @@
             var col3= document.createElement('div');
             col3.className = 'col-md-4';
 
-            var carouselDiv = document.createElement('div');
-            carouselDiv.className = 'd-flex justify-content-center';
+            if ("<%= event.Type %>" === 'Popular') {
+              var carouselDiv = document.createElement('div');
+              carouselDiv.className = 'd-flex justify-content-center';
 
-            var carousel = document.createElement('div');
-            carousel.id = "<%= 'carouselExampleControlsVideos' + eventIndex %>";
-            carousel.className = 'carousel slide';
-            carousel.setAttribute('data-ride', 'carousel');
-            carousel.style.width = '80vw';
-            carousel.style.marginLeft = 'auto';
-            carousel.style.marginRight = 'auto';
+              var carousel = document.createElement('div');
+              carousel.id = "<%= 'carouselExampleControlsVideos' + eventIndex %>";
+              carousel.className = 'carousel slide';
+              carousel.setAttribute('data-ride', 'carousel');
+              carousel.style.width = '80vw';
+              carousel.style.marginLeft = 'auto';
+              carousel.style.marginRight = 'auto';
 
-            var carouselInner = document.createElement('div');
-            carouselInner.className = 'carousel-inner';
+              var carouselInner = document.createElement('div');
+              carouselInner.className = 'carousel-inner';
 
-            "<% event.Videos.forEach((video, index) => { %>"
-              var carouselItem = document.createElement('div');
-              carouselItem.className = '<%= index === 0 ? "carousel-item active" : "carousel-item" %>';
+              "<% event.Videos.forEach((video, index) => { %>"
+                var carouselItem = document.createElement('div');
+                carouselItem.className = '<%= index === 0 ? "carousel-item active" : "carousel-item" %>';
 
-              var videoElement = document.createElement('video');
-              videoElement.controls = true;
-              videoElement.className = 'w-100 h-100';
+                var videoElement = document.createElement('video');
+                videoElement.controls = true;
+                videoElement.className = 'w-100 h-100';
 
-              var videoSource = document.createElement('source');
-              videoSource.src = '/videos/<%= video %>';
-              videoSource.type = 'video/mp4';
+                var videoSource = document.createElement('source');
+                videoSource.src = '/videos/<%= video %>';
+                videoSource.type = 'video/mp4';
 
-              var videoFallback = document.createTextNode('Your browser does not support the video tag.');
+                var videoFallback = document.createTextNode('Your browser does not support the video tag.');
 
-              var videoLabel = document.createElement('label');
-              videoLabel.className = 'video-name';
-              videoLabel.innerText = '<%= video.replace(".mp4", "") %>';
+                var videoLabel = document.createElement('label');
+                videoLabel.className = 'video-name';
+                videoLabel.innerText = '<%= video.replace(".mp4", "") %>';
 
-              videoElement.appendChild(videoSource);
-              videoElement.appendChild(videoFallback);
-              carouselItem.appendChild(videoElement);
-              carouselItem.appendChild(videoLabel);
-              carouselInner.appendChild(carouselItem);
-            "<% }) %>"
-            
-            var carouselPrev = document.createElement('a');
-            carouselPrev.className = 'carousel-control-prev';
-            carouselPrev.href = "#<%= 'carouselExampleControlsVideos' + eventIndex %>";
-            carouselPrev.role = 'button';
-            carouselPrev.setAttribute('data-slide', 'prev');
+                videoElement.appendChild(videoSource);
+                videoElement.appendChild(videoFallback);
+                carouselItem.appendChild(videoElement);
+                carouselItem.appendChild(videoLabel);
+                carouselInner.appendChild(carouselItem);
+              "<% }) %>"
+              
+              var carouselPrev = document.createElement('a');
+              carouselPrev.className = 'carousel-control-prev';
+              carouselPrev.href = "#<%= 'carouselExampleControlsVideos' + eventIndex %>";
+              carouselPrev.role = 'button';
+              carouselPrev.setAttribute('data-slide', 'prev');
 
-            var carouselPrevIcon = document.createElement('span');
-            carouselPrevIcon.className = 'carousel-control-prev-icon';
-            carouselPrevIcon.setAttribute('aria-hidden', 'true');
+              var carouselPrevIcon = document.createElement('span');
+              carouselPrevIcon.className = 'carousel-control-prev-icon';
+              carouselPrevIcon.setAttribute('aria-hidden', 'true');
 
-            var carouselPrevSr = document.createElement('span');
-            carouselPrevSr.className = 'sr-only';
+              var carouselPrevSr = document.createElement('span');
+              carouselPrevSr.className = 'sr-only';
 
-            carouselPrev.appendChild(carouselPrevIcon);
-            carouselPrev.appendChild(carouselPrevSr);
+              carouselPrev.appendChild(carouselPrevIcon);
+              carouselPrev.appendChild(carouselPrevSr);
 
-            var carouselNext = document.createElement('a');
-            carouselNext.className = 'carousel-control-next';
-            carouselNext.href = "#<%= 'carouselExampleControlsVideos' + eventIndex %>";
-            carouselNext.role = 'button';
-            carouselNext.setAttribute('data-slide', 'next');
+              var carouselNext = document.createElement('a');
+              carouselNext.className = 'carousel-control-next';
+              carouselNext.href = "#<%= 'carouselExampleControlsVideos' + eventIndex %>";
+              carouselNext.role = 'button';
+              carouselNext.setAttribute('data-slide', 'next');
 
-            var carouselNextIcon = document.createElement('span');
-            carouselNextIcon.className = 'carousel-control-next-icon';
-            carouselNextIcon.setAttribute('aria-hidden', 'true');
+              var carouselNextIcon = document.createElement('span');
+              carouselNextIcon.className = 'carousel-control-next-icon';
+              carouselNextIcon.setAttribute('aria-hidden', 'true');
 
-            var carouselNextSr = document.createElement('span');
-            carouselNextSr.className = 'sr-only';
+              var carouselNextSr = document.createElement('span');
+              carouselNextSr.className = 'sr-only';
 
-            carouselNext.appendChild(carouselNextIcon);
-            carouselNext.appendChild(carouselNextSr);
+              carouselNext.appendChild(carouselNextIcon);
+              carouselNext.appendChild(carouselNextSr);
 
-            carousel.appendChild(carouselInner);
-            carousel.appendChild(carouselPrev);
-            carousel.appendChild(carouselNext);
+              carousel.appendChild(carouselInner);
+              carousel.appendChild(carouselPrev);
+              carousel.appendChild(carouselNext);
 
-            carouselDiv.appendChild(carousel);
-            
-            col3.appendChild(carouselDiv);
+              carouselDiv.appendChild(carousel);
+              
+              col3.appendChild(carouselDiv);
+            } else if ("<%= event.Type %>" === 'Future') {
+              var image = document.createElement('img');
+              image.src = '/images/<%= event.Images[0] %>';
+              image.alt = "<%= event.Name %>";
+              image.className = 'w-100 h-100';
+
+              var imageLabel = document.createElement('label');
+              imageLabel.className = 'image-name';
+              imageLabel.innerText = '<%= event.Images[0] %>';
+
+              col3.appendChild(image);
+              col3.appendChild(imageLabel);
+            }
+
             row.appendChild(hr);
             col1.appendChild(description);
             row.appendChild(col1);
