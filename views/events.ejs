@@ -90,12 +90,15 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      setupCarouselControls();
       document.getElementById('btnPopular').addEventListener('click', function () {
         filterEvents('Popular');
+        setupCarouselControls();
       });
 
       document.getElementById('btnFuture').addEventListener('click', function () {
         filterEvents('Future');
+        setupCarouselControls();
       });
 
       function filterEvents(type) {
@@ -121,7 +124,7 @@
             hr.className = 'white-line';
 
             var col1 = document.createElement('div');
-            col1.className = 'col-md-4';
+            col1.className = 'col-md-4 mt-3';
 
             var description = document.createElement('p');
             description.className = 'event-description';
@@ -224,6 +227,19 @@
         "<% }) %>" ;
       }
     });
+
+    function setupCarouselControls() {
+      $(".carousel-control-prev, .carousel-control-next").click(function (event) {
+          event.preventDefault();
+          var targetCarouselId = $(this).attr("href");
+          $(targetCarouselId).carousel('prev');
+      });
+
+      $(".toggleCarouselBtn").click(function () {
+          var targetCarouselId = $(this).data("target");
+          $("#" + targetCarouselId).toggle();
+      });
+    }
   </script>
 
 <script>
