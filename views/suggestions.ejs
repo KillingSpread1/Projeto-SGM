@@ -14,9 +14,29 @@
 </head>
 
 <body>
-
   <%- include ("partials/header") %>
-  <h3>asdasd</h3>
+  <div class="background-logo">
+    <nav class="my-3" aria-label="breadcrumb">
+      <ol class="breadcrumb" id = "ml-2">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Suggestions</li>
+      </ol>
+    </nav>
+
+    <div class="suggestion-container">
+      <form id="suggestion-form" action="/suggestions" method="post">
+        <h2 class="text-center">Give us your suggestions!</h2>
+
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" placeholder="Title..">
+
+        <label for="suggestion">Suggestion</label>
+        <textarea id="suggestion" name="suggestion" placeholder="Write something.." style="height:200px"></textarea>
+
+        <input type="submit" name="submit" class="btn btn-dark btn-md" value="submit">
+      </form>
+    </div>
+  </div>
   <%- include ("partials/footer") %>
 </body>
 

@@ -11,6 +11,7 @@ var member = require ('./models/Members');
 var event = require ('./models/Event');
 var influence = require ('./models/Influences');
 var admin = require ('./models/Admin');
+var suggestion = require ('./models/Suggestions');
 
 async function createDefaultAdmin() {
   try {
