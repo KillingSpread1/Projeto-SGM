@@ -380,3 +380,13 @@ input[type=text], select, textarea {
     border-radius: 25px;
     padding: 20px;
 }
+
+.container-footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: red;
+    text-align: center;
+    padding: 1rem;
+}
