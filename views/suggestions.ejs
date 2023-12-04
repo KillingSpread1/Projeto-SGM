@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <%- include ("partials/header") %>
+  <%- include ("partials/header", isAuthenticated) %>
   <div class="background-logo">
     <nav class="my-3" aria-label="breadcrumb">
       <ol class="breadcrumb" id = "ml-2">
@@ -24,10 +24,6 @@
     </nav>
 
     <% if(isAuthenticated){ %>
-      <form action="/logout" method="post">
-        <button type="submit">Logout</button>
-      </form>
-
       <h1 class="text-center">Welcome admin!</h1>
 
       <% suggestions.forEach((sug, index) => { %>
