@@ -20,8 +20,8 @@ h1{
 }
 
 .fixed-bottom{
-    position: relative;
-    margin-top: 11%;
+    position: relative !important;
+    margin-top: 11% !important;
 }
 
 .EspaçoVazio{
