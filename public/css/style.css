@@ -352,6 +352,12 @@ input[type=text], select, textarea {
     padding: 20px;
 }
 
-.mt-10{
-    margin-top: 10rem;
+.container-footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: red;
+    text-align: center;
+    padding: 1rem;
 }
