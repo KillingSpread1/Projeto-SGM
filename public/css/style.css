@@ -345,10 +345,9 @@ input[type=text], select, textarea {
 }
 
 .suggestion-container {
-    margin: 50px 50px 0px 50px;
+    margin: 10px 50px 0px 50px;
     border-radius: 5px;
     background-color: rgb(220, 53, 69);
     border-radius: 25px;
     padding: 20px;
 }
->>>>>>> Stashed changes

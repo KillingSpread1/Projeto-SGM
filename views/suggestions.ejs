@@ -23,19 +23,34 @@
       </ol>
     </nav>
 
-    <div class="suggestion-container">
-      <form id="suggestion-form" action="/suggestions" method="post">
-        <h2 class="text-center">Give us your suggestions!</h2>
-
-        <label for="title">Title</label>
-        <input type="text" id="title" name="title" placeholder="Title..">
-
-        <label for="suggestion">Suggestion</label>
-        <textarea id="suggestion" name="suggestion" placeholder="Write something.." style="height:200px"></textarea>
-
-        <input type="submit" name="submit" class="btn btn-dark btn-md" value="submit">
+    <% if(isAuthenticated){ %>
+      <form action="/logout" method="post">
+        <button type="submit">Logout</button>
       </form>
-    </div>
+
+      <h1 class="text-center">Welcome admin!</h1>
+
+      <% suggestions.forEach((sug, index) => { %>
+        <div class="suggestion-container">
+            <h2><%= sug.Title %></h2>
+            <p><%= sug.Body %></p>
+        </div>
+      <% }) %>
+    <% } else{%>>
+      <div class="suggestion-container">
+        <form id="suggestion-form" action="/suggestions" method="post">
+          <h2 class="text-center">Give us your suggestions!</h2>
+
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" placeholder="Title..">
+
+          <label for="suggestion">Suggestion</label>
+          <textarea id="suggestion" name="suggestion" placeholder="Write something.." style="height:200px"></textarea>
+
+          <input type="submit" name="submit" class="btn btn-dark btn-md" value="submit">
+        </form>
+      </div>
+    <% } %>
   </div>
   <%- include ("partials/footer") %>
 </body>
