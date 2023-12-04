@@ -17,7 +17,6 @@ router.post('/', async (req, res) => {
         });
 
         await newSuggestion.save();
-        console.log(req.body.suggestion);
 
         res.redirect('/suggestions');
     } catch (error) {
@@ -25,5 +24,17 @@ router.post('/', async (req, res) => {
     }
 });
 
+// Rota para excluir uma sugestão
+router.post('/delete/:id', async (req, res) => {
+    try {
+        const suggestionId = req.params.id;
+
+        await Suggestion.findByIdAndDelete(suggestionId);
+
+        res.redirect('/suggestions');
+    } catch (error) {
+        res.status(500).send('Erro ao excluir a sugestão.');
+    }
+});
 
 module.exports = router;
