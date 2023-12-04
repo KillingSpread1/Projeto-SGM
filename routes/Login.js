@@ -16,7 +16,8 @@ router.post('/', async (req, res) => {
       const admin = await Admin.findOne({ Username: username });
   
       if (admin && bcryptjs.compareSync(password, admin.Password)) {
-        res.redirect('/suggestions');
+          req.session.userId = admin._id;
+          res.redirect('/suggestions');
       } else {
         res.redirect('/login');
       }

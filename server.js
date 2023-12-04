@@ -1,6 +1,9 @@
 const express = require('express');
+const router = express.Router();
 const mongoose = require('mongoose');
 const bcryptjs = require('bcryptjs');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
 
 // Express instance
 const app = express();
@@ -8,9 +11,11 @@ const app = express();
 var album = require ('./models/Album');
 var history = require ('./models/History');
 var member = require ('./models/Members');
+var event = require ('./models/Event');
 var influence = require ('./models/Influences');
 var disco = require ('./models/Discography');
 var admin = require ('./models/Admin');
+var suggestion = require ('./models/Suggestions');
 
 async function createDefaultAdmin() {
   try {
@@ -30,6 +35,16 @@ async function createDefaultAdmin() {
   }
 }
 
+// Configurar express-session
+app.use(session({
+  secret: 'qwertyuiopasdfghjklçzxcvbnm',
+  resave: false,
+  saveUninitialized: true,
+  store: MongoStore.create({
+    mongoUrl: 'mongodb+srv://diogo02gouveia:kMUd8BVOzpduYQQl@cluster0.dgkpjo4.mongodb.net/',
+  }),
+}));
+
 const home = require ('./routes/Home');
 const about = require ('./routes/About');
 const albums = require ('./routes/Albums');
@@ -41,6 +56,7 @@ const histories = require ('./routes/History');
 const members = require ('./routes/Members');
 const influences = require ('./routes/Influences');
 const discography = require ('./routes/Discography');
+const logout = require ('./routes/Logout');
 
 // Connect to db
 mongoose.connect('mongodb+srv://diogo02gouveia:kMUd8BVOzpduYQQl@cluster0.dgkpjo4.mongodb.net/');
@@ -68,6 +84,7 @@ app.use ('/about/history', histories);
 app.use ('/about/members', members);
 app.use ('/about/influences', influences);
 app.use ('/about/discography', discography);
+app.use ('/logout', logout);
 
 app.get("/", async (req, res) => {
     res.render('index') ;
