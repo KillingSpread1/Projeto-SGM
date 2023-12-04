@@ -54,11 +54,11 @@ h1{
 }
 
 .background-logo{
-    height: 138vh; /* Pus esta medida para que cubra o Albums page, excluindo a secçao de cada album*/
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url("../images/logo_grey-transformed.png");
+    background-attachment: fixed;
 }
 
 .breadcrumb-item.active {
