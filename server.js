@@ -13,6 +13,7 @@ var history = require ('./models/History');
 var member = require ('./models/Members');
 var event = require ('./models/Event');
 var influence = require ('./models/Influences');
+var disco = require ('./models/Discography');
 var admin = require ('./models/Admin');
 var suggestion = require ('./models/Suggestions');
 
@@ -54,6 +55,7 @@ const login = require ('./routes/Login');
 const histories = require ('./routes/History');
 const members = require ('./routes/Members');
 const influences = require ('./routes/Influences');
+const discography = require ('./routes/Discography');
 const logout = require ('./routes/Logout');
 
 // Connect to db
@@ -81,6 +83,7 @@ app.use ('/login', login);
 app.use ('/about/history', histories);
 app.use ('/about/members', members);
 app.use ('/about/influences', influences);
+app.use ('/about/discography', discography);
 app.use ('/logout', logout);
 
 app.get("/", async (req, res) => {
