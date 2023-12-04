@@ -13,30 +13,30 @@
 </head>
 
 <body>
-<%- include ("partials/header", isAuthenticated) %>
+  <%- include ("partials/header") %>
+
   <div class="background-logo">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb" id = "ml-2">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
         <li class="breadcrumb-item"><a href="/about">About</a></li>
-        <li class="breadcrumb-item active" aria-current="page">History</li>
+        <li class="breadcrumb-item active" aria-current="page">Discography</li>
       </ol>
     </nav>
-  
-    <div class="HistoriaComponentes">
-      <% histories.forEach(history => { %>
-          <h3><%= history.Title %></h3>
-          <div class="ConteudoHistoria">
-            <p><%= history.Description %></p>
-            <% if (history.Image !== "") { %>
-              <img src="/images/<%= history.Image %>.png" alt="history image" />
-            <% } %> 
-          </div>
-      <% }) %>
-    </div>  
+
+    <div class="MembrosDisplay">
+      <h1>Discography</h1>
+        <% albums.forEach(album => { %>
+            <div class="DiscografiaDisplay">
+                <img src="/images/<%= album.Image %>" alt="<%= album.Title %>" />
+                <p><%= album.Description %></p>
+                <a href="/albums#<%=album.Title%>">Go to the album</a>
+            </div>
+        <% }) %>
+    </div>    
     <%- include ("partials/footer") %>
   </div>
-
+  
 
 </body>
 

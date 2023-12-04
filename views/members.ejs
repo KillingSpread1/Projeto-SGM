@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <%- include ("partials/header") %>
+<%- include ("partials/header", isAuthenticated) %>
 
   <div class="background-logo">
     <nav aria-label="breadcrumb">
@@ -24,7 +24,7 @@
       </ol>
     </nav>
 
-    <div id="MembrosDisplay">
+    <div class="MembrosDisplay">
       <h1>Members of Linkin Park</h1>
       <% members.forEach((member, index) => { %>
         <div class="CadaMembro">

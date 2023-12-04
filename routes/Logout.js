@@ -7,7 +7,7 @@ router.post('/', (req, res) => {
             console.error('Erro ao encerrar a sessão:', err);
             res.status(500).send('Erro interno do servidor ao encerrar a sessão');
         } else {
-            res.redirect('/suggestions');
+            res.redirect('/');
         }
     });
 });
