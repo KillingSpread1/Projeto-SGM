@@ -14,8 +14,14 @@
   </ul>
 
   <div class="col-md-3 text-end">
-    <a href="/login" class="nav-link px-2 red">
-      <button type="button" class="btn btn-outline-danger me-2">Login</button>
-    </a>
+    <% if(!isAuthenticated){ %>
+        <a href="/login" class="nav-link px-2 red">
+          <button type="button" class="btn btn-outline-danger me-2">Login</button>
+        </a>
+    <% } else { %>
+        <form action="/logout" method="post">
+          <button type="submit" class="btn btn-outline-danger me-2">Logout</button>
+        </form>
+    <% } %>
   </div>
 </header>
