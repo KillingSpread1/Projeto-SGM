@@ -390,3 +390,10 @@ input[type=text], select, textarea {
     text-align: center;
     padding: 1rem;
 }
+
+.delete-suggestion-button{
+    transform: scale(0.7);
+    background: none;
+    cursor:pointer;
+    border:none;
+}
