@@ -61,18 +61,28 @@
         <form id="suggestion-form" action="/suggestions" method="post">
           <h2 class="text-center">Give us your suggestions!</h2>
 
-          <label for="title">Title</label>
+          <label for="title">Topic/Title</label>
           <input type="text" id="title" name="title" placeholder="Title..">
 
           <label for="suggestion">Suggestion</label>
           <textarea id="suggestion" name="suggestion" placeholder="Write something.." style="height:200px"></textarea>
 
-          <input type="submit" name="submit" class="btn btn-dark btn-md" value="submit">
+          <input type="submit" name="submit" class="btn btn-dark btn-md" value="Submit">
         </form>
       </div>
     <% } %>
   </div>
   <%- include ("partials/footer") %>
+
+  <script>
+    // Add an event listener to the form submission
+    document.getElementById("suggestion-form").addEventListener("submit", function(event) {
+
+      // Show an alert after submitting the suggestion
+      alert("Thank you for your suggestion!");
+
+    });
+  </script>
 </body>
 
 </html>
