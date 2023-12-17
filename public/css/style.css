@@ -320,6 +320,10 @@ scroll-container {
     border-color: rgb(220, 53, 69) !important;
 }
 
+.btn-secondary.active {
+    filter: brightness(0.7); /* Valor entre 0 e 1 para escurecer */
+  }
+
 .event-name {
     color: white;
 }
