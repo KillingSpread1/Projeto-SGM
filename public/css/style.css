@@ -399,9 +399,9 @@ input[type=text], select, textarea {
 }
 
 .carousel-control-prev {
-    left: -4rem;
+    left: -6rem;
 }
 
 .carousel-control-next {
-    right: -4rem;
+    right: -6rem;
 }
