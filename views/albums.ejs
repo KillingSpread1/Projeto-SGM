@@ -37,7 +37,7 @@
       <% albums.forEach(album => { %>
         
         <div class="card col-md-4 ml-md-auto mb-4 mr-3" id="<%= album.Name.toLowerCase().replace(/\s+/g, '-') %>">
-          <img src="/images/<%= album.Cover %>"  class="card-img-top" alt="<%= album.Name%> cover">
+          <a href="#<%=album.Name%>" class="card-img-top"><img src="/images/<%= album.Cover %>"  class="card-img-top" alt="<%= album.Name%> cover"></a>
           
           <div class="card-desc text-center">
             <h5 class="wider-description"><%= album.Description %></h5>
