@@ -54,6 +54,14 @@
                   <div class="d-flex justify-content-center">
 
                     <div id="<%= 'carouselExampleControlsVideos' + eventIndex %>" class="carousel slide" data-ride="carousel" style="width: 80vw; margin-left: auto; margin-right: auto;">
+                      <a class="carousel-control-prev" href="#<%= 'carouselExampleControlsVideos' + eventIndex %>" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only"></span>
+                      </a>
+                      <a class="carousel-control-next" href="#<%= 'carouselExampleControlsVideos' + eventIndex %>" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only"></span>
+                      </a>
                       <div class="carousel-inner">
                         <% event.Videos.forEach((video, index) => { %>
                           <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
@@ -65,14 +73,6 @@
                           </div>
                         <% }) %>
                       </div>
-                      <a class="carousel-control-prev" href="#<%= 'carouselExampleControlsVideos' + eventIndex %>" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only"></span>
-                      </a>
-                      <a class="carousel-control-next" href="#<%= 'carouselExampleControlsVideos' + eventIndex %>" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only"></span>
-                      </a>
                     </div>
                   </div>
             

@@ -397,3 +397,11 @@ input[type=text], select, textarea {
     cursor:pointer;
     border:none;
 }
+
+.carousel-control-prev {
+    left: -4rem;
+}
+
+.carousel-control-next {
+    right: -4rem;
+}
