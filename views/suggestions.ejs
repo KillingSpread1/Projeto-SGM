@@ -65,6 +65,7 @@
         </div>
       </div>
       <% }) %>
+      <%- include ("partials/footer2") %>
     <% } else{%>>
       <div class="suggestion-container">
         <form id="suggestion-form" action="/suggestions" method="post">
@@ -79,9 +80,10 @@
           <input type="submit" name="submit" class="btn btn-dark btn-md" value="Submit">
         </form>
       </div>
+      <%- include ("partials/footer") %>
     <% } %>
     </div>
-  <%- include ("partials/footer") %>
+  
 
   <script>
     // Add an event listener to the form submission
