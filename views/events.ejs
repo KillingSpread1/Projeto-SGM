@@ -27,7 +27,7 @@
   
     <div class="title">
       <p class="display-1">Events</p>
-      <button type="button" id="btnPopular" class="btn btn-secondary">Popular</button>
+      <button type="button" id="btnPopular" class="btn btn-secondary active">Popular</button>
       <button type="button" id="btnFuture" class="btn btn-secondary">Future</button>
     </div>
 
@@ -54,6 +54,14 @@
                   <div class="d-flex justify-content-center">
 
                     <div id="<%= 'carouselExampleControlsVideos' + eventIndex %>" class="carousel slide" data-ride="carousel" style="width: 80vw; margin-left: auto; margin-right: auto;">
+                      <a class="carousel-control-prev" href="#<%= 'carouselExampleControlsVideos' + eventIndex %>" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only"></span>
+                      </a>
+                      <a class="carousel-control-next" href="#<%= 'carouselExampleControlsVideos' + eventIndex %>" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only"></span>
+                      </a>
                       <div class="carousel-inner">
                         <% event.Videos.forEach((video, index) => { %>
                           <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
@@ -65,14 +73,6 @@
                           </div>
                         <% }) %>
                       </div>
-                      <a class="carousel-control-prev" href="#<%= 'carouselExampleControlsVideos' + eventIndex %>" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only"></span>
-                      </a>
-                      <a class="carousel-control-next" href="#<%= 'carouselExampleControlsVideos' + eventIndex %>" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only"></span>
-                      </a>
                     </div>
                   </div>
             
@@ -94,11 +94,13 @@
       document.getElementById('btnPopular').addEventListener('click', function () {
         filterEvents('Popular');
         setupCarouselControls();
+        highlightButton('btnPopular');
       });
 
       document.getElementById('btnFuture').addEventListener('click', function () {
         filterEvents('Future');
         setupCarouselControls();
+        highlightButton('btnFuture');
       });
 
       function filterEvents(type) {
@@ -255,6 +257,16 @@
           $("#" + targetCarouselId).toggle();
       });
     }
+
+    function highlightButton(buttonId) {
+      var buttons = document.querySelectorAll('.btn-secondary');
+      buttons.forEach(function (button) {
+        button.classList.remove('active');
+      });
+      var selectedButton = document.getElementById(buttonId);
+      selectedButton.classList.add('active');
+    }
+
   </script>
 
 <script>

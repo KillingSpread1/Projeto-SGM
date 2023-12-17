@@ -12,25 +12,32 @@
   <title>Linkin Park</title>
 
   <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
     .background-logo{
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
       background-image: url("../images/logo_grey-transformed.png");
-      position: fixed;
+      position: static;
       width: 100%;
-      height: 100vh;
     }
+
     #suggestion{
       height: 130px !important;
     }
+    
   </style>
   
 </head>
 
 <body>
-  <%- include ("partials/header", isAuthenticated) %>
   <div class="background-logo">
+    <%- include ("partials/header", isAuthenticated) %>
+
     <nav class="my-3" aria-label="breadcrumb">
       <ol class="breadcrumb" id = "ml-2">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -42,6 +49,7 @@
       <h1 class="text-center">Welcome admin!</h1>
 
       <% suggestions.forEach((sug, index) => { %>
+        <div class = "container">
         <div class="suggestion-container d-flex justify-content-between">
           <div>
             <h2><%= sug.Title %></h2>
@@ -55,24 +63,35 @@
             </form>
           </div>
         </div>
+      </div>
       <% }) %>
     <% } else{%>>
       <div class="suggestion-container">
         <form id="suggestion-form" action="/suggestions" method="post">
           <h2 class="text-center">Give us your suggestions!</h2>
 
-          <label for="title">Title</label>
+          <label for="title">Topic/Title of the suggestion</label>
           <input type="text" id="title" name="title" placeholder="Title..">
 
           <label for="suggestion">Suggestion</label>
           <textarea id="suggestion" name="suggestion" placeholder="Write something.." style="height:200px"></textarea>
 
-          <input type="submit" name="submit" class="btn btn-dark btn-md" value="submit">
+          <input type="submit" name="submit" class="btn btn-dark btn-md" value="Submit">
         </form>
       </div>
     <% } %>
-  </div>
+    </div>
   <%- include ("partials/footer") %>
+
+  <script>
+    // Add an event listener to the form submission
+    document.getElementById("suggestion-form").addEventListener("submit", function(event) {
+
+      // Show an alert after submitting the suggestion
+      alert("Thank you for your suggestion!");
+
+    });
+  </script>
 </body>
 
 </html>
